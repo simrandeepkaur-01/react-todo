@@ -48,35 +48,9 @@ export default function AddTask() {
 
             <section className='flex space-x-6 w-full'>
 
-                <TaskContainer heading="Incompleted">
-                    <ul className='space-y-2'>
-                        {
-                            tasks.map((task) => (
-                                task.direction === 'left' && (
-                                    <li key={task.id} className='space-x-2 flex items-center'>
-                                        <input onChange={handleStatus} checked={task.isComplete} type="checkbox" name={task.id} id={task.id} />
-                                        <label htmlFor={task.id}>{task.taskName}</label>
-                                    </li>
-                                )
-                            ))
-                        }
-                    </ul>
-                </TaskContainer>
-
+                <TaskContainer direction='left' handleStatus={handleStatus} heading='Incomplete Task' />
                 <Buttons />
-
-                <TaskContainer heading="Complete">
-                    <ul className='space-y-2'>
-                        {
-                            tasks.map((task) => (
-                                task.direction === 'right' && (<li key={task.id}>
-                                    <input onChange={handleStatus} checked={task.isComplete} type="checkbox" name={task.id} id={task.id} />
-                                    <label htmlFor={task.id}>{task.taskName}</label>
-                                </li>)
-                            ))
-                        }
-                    </ul>
-                </TaskContainer>
+                <TaskContainer direction='right' handleStatus={handleStatus} heading='Completed Task' />
 
             </section>
         </section>
